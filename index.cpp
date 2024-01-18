@@ -1,9 +1,20 @@
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+// int main() { cout << "Hello work"; }
 
-using namespace std;
+// lecture 2
+// #include <cstdio>
+// using namespace std;
 
-int main ( ){
+// int main() {
+//      puts("click me");
+//      puts("i am learning here");
+//      puts("create account");
+//      return 0;
+//  }
 
-cout<<"Hello work";
+// statement is single line of code terminated by semicolon ;
 
-}
+// block of code 
+// three type of () parentheses [] brackets {} curly bracket
+
