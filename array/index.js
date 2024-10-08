@@ -341,20 +341,103 @@ let myArr = [1, 2, 3, 4, 5]
 // };
 // console.log('findPrime(n) :>> ', subtractProductAndSum(19));
 
-var findMin = function (n) {
+// var findMin = function (n) {
 
-    let start = 0
-    let end = (nums.length) - 1
+//     let start = 0
+//     let end = (nums.length) - 1
 
-    while (start < end) {
-        let mid = Math.floor((start + end) / 2)
-        if (nums[mid] > nums[end]) {
-            start = mid + 1
-        } else {
-            end = mid
+//     while (start < end) {
+//         let mid = Math.floor((start + end) / 2)
+//         if (nums[mid] > nums[end]) {
+//             start = mid + 1
+//         } else {
+//             end = mid
+//         }
+//     }
+//     return nums[start]
+// };
+// console.log('findPrime(n) :>> ', subtractProductAndSum(19));
+
+
+// var func = (N) => {
+//     let count = 0
+//     while (N > 0) {
+//         let lastDigit = N % 10
+//         count++
+//         N = Math.floor(N / 10)
+//     }
+//     return count
+
+// }
+
+// console.log('func(1231) :>> ', func(1231));
+
+// var armstrongNumber = (n) => {
+//     // code here
+//     let sum = 0
+//     let duplicateNum = n
+//     while (n > 0) {
+//         let lastdigit = n % 10
+//         sum = (sum) + (lastdigit * lastdigit * lastdigit)
+//         n = Math.floor(n / 10)
+//     }
+//     console.log('sum :>> ', sum);
+//     console.log('sum :>> ', sum);
+//     if (sum == duplicateNum) {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
+// console.log('func(1231) :>> ', armstrongNumber(153));
+
+
+
+// Dear {fullName},
+
+
+// 📅 *Important Reminder: October Fee Submission Due Soon!*
+
+// We hope you're doing well! This is a gentle reminder that the deadline to submit your tuition fee for *October* is *9th Octore*. To avoid any late fees, please make sure your payment is completed before the deadline.
+
+// ⚠️ Payments made after this date will include an additional fine. Kindly ensure timely submission to avoid any extra charges.
+
+// *Fee Submission Details:*  
+// - *JazzCash Number:* 03356609060  
+// - *Account Title:* Muhammad Umair Ahmad  
+
+// Once you’ve made the payment, please share the receipt along with your name and roll number with us at your earliest convenience.
+
+// 💖 *Let’s continue making this learning experience a success together!* If you've already made the payment or have any questions, feel free to contact us.
+
+// Thank you for your cooperation and dedication to your studies. We’re here to support you every step of the way!
+
+// Warm regards,  
+// *Seeraht Skill Development Program*
+
+// var filter = function (arr, fn) {
+//     let newArray = new Array()
+//     let i = 0
+//     for (let num of arr) {
+//         if (fn(num, i)) {
+//             newArray.push(num)
+//         }
+//         i++
+//     }
+//     return newArray
+// };
+
+
+// console.log('func(1231) :>> ', filter(153));
+
+var lcmAndGcd = (a, b) => {
+    //code here
+    let maxNum = Math.max(a, b)
+    let largestNum = 0
+    for (let i = 0; i < maxNum; i++) {
+        if (a % i == 0 && b % i == 0) {
+            largestNum = i
         }
     }
-    return nums[start]
-};
-console.log('findPrime(n) :>> ', subtractProductAndSum(19));
-
+    return largestNum
+}
