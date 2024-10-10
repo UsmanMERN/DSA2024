@@ -430,14 +430,41 @@ let myArr = [1, 2, 3, 4, 5]
 
 // console.log('func(1231) :>> ', filter(153));
 
-var lcmAndGcd = (a, b) => {
-    //code here
-    let maxNum = Math.max(a, b)
-    let largestNum = 0
-    for (let i = 0; i < maxNum; i++) {
-        if (a % i == 0 && b % i == 0) {
-            largestNum = i
-        }
+// var gcd = (a, b) => {
+//     if (b == 0) {
+//         return a
+//     }
+//     while (a != b) {
+//         if (a > b) {
+//             a = a - b
+//         } else {
+//             b = b - a
+//         }
+//     }
+//     return a
+// }
+
+// let lcm = (a, b) => {
+//     return (a * b) / gcd(a, b)
+// }
+// var lcmAndGcd = (a, b) => {
+
+//     let gcdValue = gcd(a, b)
+//     let lcmValue = lcm(a, b)
+//     return { gcdValue, lcmValue }
+// }
+// console.log('func(1231) :>> ', lcmAndGcd(40, 4));
+
+var plusOne = function (digits) {
+    let totalPlusOne = digits.reduce((prev, value, index, array) => prev = (prev * 10) + value, 0) + 1
+    let updatedArray = []
+    while (totalPlusOne > 0) {
+        let lastDigit = totalPlusOne % 10
+        updatedArray.unshift(lastDigit)
+        totalPlusOne = Math.floor(totalPlusOne / 10)
     }
-    return largestNum
-}
+    return updatedArray
+};
+
+
+console.log('func(1231) :>> ', plusOne([40, 4]));
