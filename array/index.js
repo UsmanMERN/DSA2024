@@ -455,16 +455,38 @@ let myArr = [1, 2, 3, 4, 5]
 // }
 // console.log('func(1231) :>> ', lcmAndGcd(40, 4));
 
-var plusOne = function (digits) {
-    let totalPlusOne = digits.reduce((prev, value, index, array) => prev = (prev * 10) + value, 0) + 1
-    let updatedArray = []
-    while (totalPlusOne > 0) {
-        let lastDigit = totalPlusOne % 10
-        updatedArray.unshift(lastDigit)
-        totalPlusOne = Math.floor(totalPlusOne / 10)
+// var plusOne = function (digits) {
+//     let totalPlusOne = digits.reduce((prev, value, index, array) => prev = (prev * 10) + value, 0) + 1
+//     let updatedArray = []
+//     while (totalPlusOne > 0) {
+//         let lastDigit = totalPlusOne % 10
+//         updatedArray.unshift(lastDigit)
+//         totalPlusOne = Math.floor(totalPlusOne / 10)
+//     }
+//     return updatedArray
+// };
+
+
+// console.log('func(1231) :>> ', plusOne([40, 4]));
+
+var reverseArray = function (digits) {
+    let i = 0;
+    let j = digits.length - 1; // Initialize j to the last valid index in the array
+
+    while (i <= j) {  // Loop until the two pointers meet or cross
+        let startElement = digits[i];  // Save the element at index i
+        let endElement = digits[j];    // Save the element at index j
+
+        // Swap the elements at i and j
+        digits[i] = endElement;
+        digits[j] = startElement;
+        // Move the pointers inward
+        i++;
+        j--;
     }
-    return updatedArray
+
+    return digits;
 };
 
 
-console.log('func(1231) :>> ', plusOne([40, 4]));
+console.log('func(1231) :>> ', reverseArray([40, 21, 3, 1, 4, 7]));
