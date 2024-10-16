@@ -402,9 +402,9 @@ let myArr = [1, 2, 3, 4, 5]
 
 // ⚠️ Payments made after this date will include an additional fine. Kindly ensure timely submission to avoid any extra charges.
 
-// *Fee Submission Details:*  
-// - *JazzCash Number:* 03356609060  
-// - *Account Title:* Muhammad Umair Ahmad  
+// *Fee Submission Details:*
+// - *JazzCash Number:* 03356609060
+// - *Account Title:* Muhammad Umair Ahmad
 
 // Once you’ve made the payment, please share the receipt along with your name and roll number with us at your earliest convenience.
 
@@ -412,7 +412,7 @@ let myArr = [1, 2, 3, 4, 5]
 
 // Thank you for your cooperation and dedication to your studies. We’re here to support you every step of the way!
 
-// Warm regards,  
+// Warm regards,
 // *Seeraht Skill Development Program*
 
 // var filter = function (arr, fn) {
@@ -469,24 +469,109 @@ let myArr = [1, 2, 3, 4, 5]
 
 // console.log('func(1231) :>> ', plusOne([40, 4]));
 
-var reverseArray = function (digits) {
-    let i = 0;
-    let j = digits.length - 1; // Initialize j to the last valid index in the array
+// var reverseArray = function (digits) {
+//     let i = 0;
+//     let j = digits.length - 1; // Initialize j to the last valid index in the array
 
-    while (i <= j) {  // Loop until the two pointers meet or cross
-        let startElement = digits[i];  // Save the element at index i
-        let endElement = digits[j];    // Save the element at index j
+//     while (i <= j) {  // Loop until the two pointers meet or cross
+//         let startElement = digits[i];  // Save the element at index i
+//         let endElement = digits[j];    // Save the element at index j
 
-        // Swap the elements at i and j
-        digits[i] = endElement;
-        digits[j] = startElement;
-        // Move the pointers inward
-        i++;
-        j--;
+//         // Swap the elements at i and j
+//         digits[i] = endElement;
+//         digits[j] = startElement;
+
+//         // Move the pointers inward
+//         i++;
+//         j--;
+//     }
+
+//     return digits;
+// };
+
+
+// console.log('func(1231) :>> ', reverseArray([40, 21, 3, 1, 4, 7]));
+
+// var swapNumber = (arr) => {
+
+//     for (let i = 0; i < arr.length; i += 2) {
+//         let firstElement = arr[i];
+//         if (i + 1 < arr.length) {
+//             let secondElement = arr[i + 1];
+//             arr[i] = secondElement
+//             arr[i + 1] = firstElement
+//         }
+//     }
+//     return arr
+// }
+
+// console.log('func(1231) :>> ', swapNumber([40, 21, 1, 4, 7, 8]));
+
+// var checkSorted = (arr) => {
+
+//     let count = 0
+//     let n = arr.length
+//     for (let i = 0; i < n; i++) {
+//         if (arr[i] > arr[(i + 1) % n]) {
+//             count++
+//             console.log('count :>> ', count);
+//             console.log('arr[i] :>> ', arr[i]);
+//             console.log('arr[(i+1%n)] :>> ', arr[(i + 1 % n)]);
+//         }
+//     }
+//     return count === 0 || count === 1
+// }
+
+// console.log('func(1231) :>> ', checkSorted([40, 21, 1, 4, 7, 8]));
+
+
+// var checkSorted = (arr) => {
+
+//     let count = 0
+//     let n = arr.length
+//     for (let i = 0; i < n; i++) {
+//         if (arr[i] > arr[(i + 1) % n]) {
+//             count++
+//             console.log('count :>> ', count);
+//             console.log('arr[i] :>> ', arr[i]);
+//             console.log('arr[(i+1%n)] :>> ', arr[(i + 1 % n)]);
+//         }
+//     }
+//     return count === 0 || count === 1
+// }
+
+// console.log('func(1231) :>> ', checkSorted([40, 21, 1, 4, 7, 8]));
+
+var rotateArray = (nums, k) => {
+    let n = nums.length;
+
+    // Handle cases where k is greater than the length of the array
+    k = k % n; // Get effective rotations
+
+    console.log('k :>> ', k);
+    // Reverse the entire array
+    reverse(nums, 0, n - 1);
+    // Reverse the first k elements
+    reverse(nums, 0, k - 1);
+    console.log('k :>> ', k);
+    // Reverse the remaining n-k elements
+    reverse(nums, k, n - 1);
+    console.log('k :>> ', k);
+
+    return nums;
+}
+
+// Helper function to reverse a portion of the array
+const reverse = (arr, start, end) => {
+    while (start < end) {
+        [arr[start], arr[end]] = [arr[end], arr[start]]; // Swap elements
+        start++;
+        end--;
     }
-
-    return digits;
 };
 
+// Example usage:
+console.log('func(1231) :>> ', rotateArray([40, 21, 1, 4, 7, 8, 23, 1, 2, 12, 21], 5)); // Output: [7, 8, 40, 21, 1, 4]
 
-console.log('func(1231) :>> ', reverseArray([40, 21, 3, 1, 4, 7]));
+
+
