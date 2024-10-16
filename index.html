@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Animation</title>
+    <style>
+        .array {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .array div {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .arrow {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color: red;
+        }
+
+        .step {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="array">
+        <div id="element0">5</div>
+        <div id="element1">3</div>
+        <div id="element2">8</div>
+        <div id="element3">4</div>
+    </div>
+    <div class="step" id="step-info">Step: 0</div>
+    <button onclick="startBubbleSort()">Start Sorting</button>
+
+    <script>
+        const array = [5, 3, 8, 4];
+        let stepCount = 0;
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function createArrow(element) {
+            const arrow = document.createElement('div');
+            arrow.className = 'arrow';
+            arrow.innerHTML = '↓';
+            element.appendChild(arrow);
+            return arrow;
+        }
+
+        function removeArrow(arrow) {
+            arrow.parentNode.removeChild(arrow);
+        }
+
+        async function startBubbleSort() {
+            const elements = document.querySelectorAll('.array div');
+            for (let i = 0; i < array.length - 1; i++) {
+                for (let j = 0; j < array.length - i - 1; j++) {
+                    // Create arrows for the two elements being compared
+                    let arrow1 = createArrow(elements[j]);
+                    let arrow2 = createArrow(elements[j + 1]);
+
+                    // Highlight the two elements
+                    elements[j].classList.add('highlight');
+                    elements[j + 1].classList.add('highlight');
+
+                    // Update step info
+                    document.getElementById('step-info').textContent = `Step: ${++stepCount} - Comparing ${array[j]} and ${array[j + 1]}`;
+
+                    await sleep(1500); // Pause for visualization
+
+                    if (array[j] > array[j + 1]) {
+                        // Swap values in the array
+                        let temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+
+                        // Update the UI
+                        elements[j].textContent = array[j];
+                        elements[j + 1].textContent = array[j + 1];
+
+                        // Update step info for swap
+                        document.getElementById('step-info').textContent = `Step: ${++stepCount} - Swapped ${array[j + 1]} and ${array[j]}`;
+                    }
+
+                    await sleep(1500); // Pause after swap
+
+                    // Remove highlights and arrows
+                    elements[j].classList.remove('highlight');
+                    elements[j + 1].classList.remove('highlight');
+                    removeArrow(arrow1);
+                    removeArrow(arrow2);
+                }
+            }
+
+            document.getElementById('step-info').textContent = `Sorting Complete in ${stepCount} steps!`;
+        }
+    </script>
+</body>
+
+</html>
