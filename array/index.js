@@ -542,36 +542,95 @@ let myArr = [1, 2, 3, 4, 5]
 
 // console.log('func(1231) :>> ', checkSorted([40, 21, 1, 4, 7, 8]));
 
-var rotateArray = (nums, k) => {
-    let n = nums.length;
+// var rotateArray = (nums, k) => {
+//     let n = nums.length;
 
-    // Handle cases where k is greater than the length of the array
-    k = k % n; // Get effective rotations
+//     // Handle cases where k is greater than the length of the array
+//     k = k % n; // Get effective rotations
 
-    console.log('k :>> ', k);
-    // Reverse the entire array
-    reverse(nums, 0, n - 1);
-    // Reverse the first k elements
-    reverse(nums, 0, k - 1);
-    console.log('k :>> ', k);
-    // Reverse the remaining n-k elements
-    reverse(nums, k, n - 1);
-    console.log('k :>> ', k);
+//     console.log('k :>> ', k);
+//     // Reverse the entire array
+//     reverse(nums, 0, n - 1);
+//     // Reverse the first k elements
+//     reverse(nums, 0, k - 1);
+//     console.log('k :>> ', k);
+//     // Reverse the remaining n-k elements
+//     reverse(nums, k, n - 1);
+//     console.log('k :>> ', k);
 
-    return nums;
-}
+//     return nums;
+// }
 
-// Helper function to reverse a portion of the array
-const reverse = (arr, start, end) => {
-    while (start < end) {
-        [arr[start], arr[end]] = [arr[end], arr[start]]; // Swap elements
-        start++;
-        end--;
+// // Helper function to reverse a portion of the array
+// const reverse = (arr, start, end) => {
+//     while (start < end) {
+//         [arr[start], arr[end]] = [arr[end], arr[start]]; // Swap elements
+//         start++;
+//         end--;
+//     }
+// };
+
+// // Example usage:
+// console.log('func(1231) :>> ', rotateArray([40, 21, 1, 4, 7, 8, 23, 1, 2, 12, 21], 5)); // Output: [7, 8, 40, 21, 1, 4]
+
+
+
+// var moveZeroes = function (nums) {
+//     // let sortedArray = nums.sort((a, b) => b - a)
+//     // return sortedArray
+//     for (let i = 0; i < nums.length; i++) {
+//         const element = nums[i];
+//         if (element == 0) {
+//             nums.splice(i, 1);
+//             nums.push(0)
+//         }
+//     }
+//     return nums
+// };
+// console.log('func(1231) :>> ', moveZeroes([40, 21, 0, 4, 7, 0, 23, 1, 2, 0, 21])); // Output: [7, 8, 40, 21, 1, 4]
+
+// function findUnion(a, b) {
+//     // your code here
+//     let newArray = [...a, ...b]
+//     let newSet = new Set(newArray)
+//     // console.log(newSet)
+//     let union = new Array()
+//     for (const item of newSet.values()) {
+//         union.push(item)
+//         // console.log(item);
+//     }
+//     return union
+// }
+// console.log('func(1231) :>> ', findUnion([1, 1, 2, 3, 4], [5, 6, 6])); // Output: [7, 8, 40, 21, 1, 4]
+
+
+// var findMaxConsecutiveOnes = function (nums) {
+//     let count = 0;
+//     let counter = 0
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] == 1) {
+//             console.log('nums[i] :>> ', nums[i]);
+//             ++counter
+//             console.log('counter :>> ', counter);
+//         } else {
+//             // console.log('count :>> ', count);
+//             // console.log('counter :>> ', counter);
+//             console.log('counter :>> ', counter);
+//             count = Math.max(count, counter)
+//             counter = 0
+//         }
+//     }
+//     return Math.max(count, counter)
+// };
+
+// console.log('func(1231) :>> ', findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1])); // Output: [7, 8, 40, 21, 1, 4]
+
+var singleNumber = function (nums) {
+    let xor = 0
+    for (let i = 0; i < nums.length; i++) {
+        const element = nums[i];
+        xor ^= element
     }
+    return xor
 };
-
-// Example usage:
-console.log('func(1231) :>> ', rotateArray([40, 21, 1, 4, 7, 8, 23, 1, 2, 12, 21], 5)); // Output: [7, 8, 40, 21, 1, 4]
-
-
-
+console.log('func(1231) :>> ', singleNumber([4, 1, 2, 1, 2])); // Output: [7, 8, 40, 21, 1, 4]
