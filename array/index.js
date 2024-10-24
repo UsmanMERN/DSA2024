@@ -625,12 +625,112 @@ let myArr = [1, 2, 3, 4, 5]
 
 // console.log('func(1231) :>> ', findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1])); // Output: [7, 8, 40, 21, 1, 4]
 
-var singleNumber = function (nums) {
-    let xor = 0
+// var singleNumber = function (nums) {
+//     let xor = 0
+//     for (let i = 0; i < nums.length; i++) {
+//         const element = nums[i];
+//         xor ^= element
+//     }
+//     return xor
+// };
+// console.log('func(1231) :>> ', singleNumber([4, 1, 2, 1, 2])); // Output: [7, 8, 40, 21, 1, 4]
+
+// var singleNumber = function (nums) {
+//     // let xor = 0
+//     let mySet = new Set()
+//     for (let i = 0; i < nums.length; i++) {
+//         if (mySet.has(nums[i])) {
+//             mySet.delete(nums[i])
+//         } else {
+//             mySet.add(nums[i])
+//         }
+//     }
+//     return mySet.values().next().value
+// };
+// console.log('func(1231) :>> ', singleNumber([4, 1, 2, 1, 2])); // Output: [7, 8, 40, 21, 1, 4]
+
+
+// function lenOfLongSubarr(arr, n, k) {
+//      let maxLength = 0;
+
+//     // There are 2^n possible subarrays (including empty set)
+//     const subArrayLength = 1 << n; // 2^n
+
+//     for (let i = 0; i < subArrayLength; i++) {
+//         let subArray = [];
+
+//         // Create all possible subarrays using bit manipulation
+//         for (let j = 0; j < n; j++) {
+//             if ((i & (1 << j)) !== 0) {
+//                 subArray.push(arr[j]);
+//             }
+//         }
+
+//         // Calculate sum of current subarray
+//         let sum = subArray.reduce((prev, item) => prev + item, 0);
+
+//         // If sum equals k, update maxLength if current subarray is longer
+//         if (sum === k) {
+//             maxLength = Math.max(maxLength, subArray.length);
+//         }
+//     }
+
+//     return maxLength;
+// }
+
+// function lenOfLongSubarr(arr, n, k) {
+//     let map = new Map(); // To store cumulative sum and its first occurrence index
+//     let sum = 0; // Cumulative sum
+//     let maxLen = 0; // To store the maximum length of subarray
+
+//     for (let i = 0; i < n; i++) {
+//         sum += arr[i]; // Update cumulative sum
+
+//         // If cumulative sum equals k, update maxLen
+//         if (sum === k) {
+//             maxLen = i + 1;
+//         }
+
+//         // Check if (sum - k) exists in map
+//         if (map.has(sum - k)) {
+//             maxLen = Math.max(maxLen, i - map.get(sum - k));
+//         }
+
+//         // Store sum in map if it's not already present
+//         if (!map.has(sum)) {
+//             map.set(sum, i);
+//         }
+//     }
+
+//     return maxLen; // Return the maximum length of subarray
+// }
+
+
+// console.log('func(1231) :>> ', lenOfLongSubarr([10, 5, 2, 7, 1, 9], 6, 15)); // Output: [7, 8, 40, 21, 1, 4]
+
+var majorityElement = function (nums) {
+    let myMap = new Map();
+
     for (let i = 0; i < nums.length; i++) {
-        const element = nums[i];
-        xor ^= element
+        if (myMap.has(nums[i])) {
+            // Element exists, increment count
+            console.log(`Element ${nums[i]} found`);
+            console.log(`Current count: ${myMap.get(nums[i])}`);
+            console.log(`New count will be: ${myMap.get(nums[i]) + 1}`);
+
+            myMap.set(nums[i], myMap.get(nums[i]) + 1);
+
+            console.log('Map after update:', myMap);
+        } else {
+            // New element, add with count 1
+            console.log(`New element ${nums[i]} found`);
+            myMap.set(nums[i], 1);
+            console.log('Map after adding:', myMap);
+        }
+        console.log('-------------------');
     }
-    return xor
-};
-console.log('func(1231) :>> ', singleNumber([4, 1, 2, 1, 2])); // Output: [7, 8, 40, 21, 1, 4]
+    return myMap;
+}
+
+// Test
+console.log(majorityElement([2, 2, 1, 2]));
