@@ -708,29 +708,30 @@ let myArr = [1, 2, 3, 4, 5]
 
 // console.log('func(1231) :>> ', lenOfLongSubarr([10, 5, 2, 7, 1, 9], 6, 15)); // Output: [7, 8, 40, 21, 1, 4]
 
-var majorityElement = function (nums) {
-    let myMap = new Map();
+// var majorityElement = function (nums) {
+//     let myMap = new Map();
 
-    for (let i = 0; i < nums.length; i++) {
-        if (myMap.has(nums[i])) {
-            // Element exists, increment count
-            console.log(`Element ${nums[i]} found`);
-            console.log(`Current count: ${myMap.get(nums[i])}`);
-            console.log(`New count will be: ${myMap.get(nums[i]) + 1}`);
+//     for (let i = 0; i < nums.length; i++) {
+//         if (myMap.has(nums[i])) {
+//             // Element exists, increment count
+//             console.log(`Element ${nums[i]} found`);
+//             console.log(`Current count: ${myMap.get(nums[i])}`);
+//             console.log(`New count will be: ${myMap.get(nums[i]) + 1}`);
 
-            myMap.set(nums[i], myMap.get(nums[i]) + 1);
+//             myMap.set(nums[i], myMap.get(nums[i]) + 1);
 
-            console.log('Map after update:', myMap);
-        } else {
-            // New element, add with count 1
-            console.log(`New element ${nums[i]} found`);
-            myMap.set(nums[i], 1);
-            console.log('Map after adding:', myMap);
-        }
-        console.log('-------------------');
-    }
-    return myMap;
-}
+//             console.log('Map after update:', myMap);
+//         } else {
+//             // New element, add with count 1
+//             console.log(`New element ${nums[i]} found`);
+//             myMap.set(nums[i], 1);
+//             console.log('Map after adding:', myMap);
+//         }
+//         console.log('-------------------');
+//     }
+//     console.log('myMap.get(2) :>> ', myMap.get(2));
+//     return myMap;
+// }
 
-// Test
-console.log(majorityElement([2, 2, 1, 2]));
+// // Test
+// console.log(majorityElement([2, 2, 1, 2]));
