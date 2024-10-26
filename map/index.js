@@ -154,21 +154,41 @@ let studentMap = new Map([
 //     students: 3
 // }
 
-var pairSum = (nums, target) => {
-    let n = nums.length
-    let j = n - 1
-    let i = 0
-    nums.sort((a, b) => a - b)
-    while (i < j) {
-        let pairSum = nums[i] + nums[j]
-        if (pairSum > target) {
-            j--
-        } else if (pairSum < target) {
-            i++
+// var pairSum = (nums, target) => {
+//     let n = nums.length
+//     let j = n - 1
+//     let i = 0
+//     nums.sort((a, b) => a - b)
+//     while (i < j) {
+//         let pairSum = nums[i] + nums[j]
+//         if (pairSum > target) {
+//             j--
+//         } else if (pairSum < target) {
+//             i++
+//         } else {
+//             return [i, j]
+//         }
+//     }
+// }
+
+// console.log('pairSum([2,7,11,15],9) :>> ', pairSum([3, 2, 4], 6));
+
+var rearrangeArray = function (nums) {
+    let positive = []
+    let negative = []
+    for (let num of nums) {
+        if (num > 0) {
+            positive.push(num)
         } else {
-            return [i, j]
+            negative.push(num)
         }
     }
-}
+    for (let i = 0; i < nums.length / 2; i++) {
+        // const element = array[i];
+        nums[2 * i] = positive[i]
+        nums[(2 * i) + 1] = negative[i]
+    }
+    return nums
+};
 
-console.log('pairSum([2,7,11,15],9) :>> ', pairSum([3, 2, 4], 6));
+console.log('pairSum([2,7,11,15],9) :>> ', rearrangeArray([3, 1, -2, -5, 2, -4]));
